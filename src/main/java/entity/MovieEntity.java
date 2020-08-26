@@ -3,22 +3,25 @@ package entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Movie")
+@Table(name = "movie")
 public class MovieEntity {
 
     @GeneratedValue
     @Id
     private Integer id;
 
+    @Column(name = "Tytuł")
     private String title;
+    @Column(name = "Reżyser")
     private String director;
+    @Column(name = "Gatunek")
     private String filmGenre;
+    @Column(name = "Rok")
     private Integer productionYear;
+    @Column(name = "Obsada")
     private String starsActorsAndActresses;
+    @Column(name = "Recenzje")
     private String reviews;
-
-    public MovieEntity() {
-    }
 
     public Integer getId() {
         return id;
@@ -44,9 +47,6 @@ public class MovieEntity {
 
     }
 
-
-
-    @Column(name = "Title")
     public String getTitle() {
         return title;
     }
@@ -55,7 +55,6 @@ public class MovieEntity {
         this.title = title;
     }
 
-    @Column(name = "Director")
     public String getDirector() {
         return director;
     }
@@ -64,7 +63,6 @@ public class MovieEntity {
         this.director = director;
     }
 
-    @Column(name = "FilmGenre")
     public String getFilmGenre() {
         return filmGenre;
     }
@@ -73,7 +71,6 @@ public class MovieEntity {
         this.filmGenre = filmGenre;
     }
 
-    @Column(name = "ProductionYear")
     public Integer getProductionYear() {
         return productionYear;
     }
@@ -82,7 +79,6 @@ public class MovieEntity {
         this.productionYear = productionYear;
     }
 
-    @Column(name = "Stars")
     public String getStarsActorsAndActresses() {
         return starsActorsAndActresses;
     }
@@ -91,7 +87,6 @@ public class MovieEntity {
         this.starsActorsAndActresses = starsActorsAndActresses;
     }
 
-    @Column(name = "Reviews")
     public String getReviews() {
         return reviews;
     }
@@ -100,16 +95,16 @@ public class MovieEntity {
         this.reviews = reviews;
     }
 
-        @Override
-    public String toString() {
-        return "MovieEntity{" +
-                "Title='" + this.title + '\'' +
-                ", Director='" + this.director + '\'' +
-                ", FilmGenre='" + this.filmGenre + '\'' +
-                ", Stars=" + this.starsActorsAndActresses +
-                ", Reviews=" + this.reviews +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "MovieEntity{" +
+//                "Title='" + this.title + '\'' +
+//                ", Director='" + this.director + '\'' +
+//                ", FilmGenre='" + this.filmGenre + '\'' +
+//                ", Stars=" + this.starsActorsAndActresses +
+//                ", Reviews=" + this.reviews +
+//                '}';
+//    }
 
 
 }

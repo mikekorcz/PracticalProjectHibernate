@@ -23,6 +23,9 @@ public class MovieEntity {
     @Column(name = "Recenzje")
     private String reviews;
 
+    public MovieEntity() {
+    }
+
     public Integer getId() {
         return id;
     }

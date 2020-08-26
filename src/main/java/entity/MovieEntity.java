@@ -12,35 +12,10 @@ public class MovieEntity {
 
     private String title;
     private String director;
-    private String productionCountry;
-    private Integer productionYear;
     private String filmGenre;
+    private Integer productionYear;
     private String starsActorsAndActresses;
     private String reviews;
-
-    public String getFilmGenre() {
-        return filmGenre;
-    }
-
-    public void setFilmGenre(String filmGenre) {
-        this.filmGenre = filmGenre;
-    }
-
-    public String getStarsActorsAndActresses() {
-        return starsActorsAndActresses;
-    }
-
-    public void setStarsActorsAndActresses(String starsActorsAndActresses) {
-        this.starsActorsAndActresses = starsActorsAndActresses;
-    }
-
-    public String getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(String reviews) {
-        this.reviews = reviews;
-    }
 
     public MovieEntity() {
     }
@@ -56,7 +31,6 @@ public class MovieEntity {
     public MovieEntity(String title, String director, String productionCountry, Integer productionYear) {
         this.title = title;
         this.director = director;
-        this.productionCountry = productionCountry;
         this.productionYear = productionYear;
     }
 
@@ -69,6 +43,7 @@ public class MovieEntity {
         this.reviews = reviews;
 
     }
+
 
 
     @Column(name = "Title")
@@ -89,13 +64,13 @@ public class MovieEntity {
         this.director = director;
     }
 
-    @Column(name = "ProductionCountry")
-    public String getProductionCountry() {
-        return productionCountry;
+    @Column(name = "FilmGenre")
+    public String getFilmGenre() {
+        return filmGenre;
     }
 
-    public void setProductionCountry(String productionCountry) {
-        this.productionCountry = productionCountry;
+    public void setFilmGenre(String filmGenre) {
+        this.filmGenre = filmGenre;
     }
 
     @Column(name = "ProductionYear")
@@ -107,13 +82,34 @@ public class MovieEntity {
         this.productionYear = productionYear;
     }
 
-    @Override
+    @Column(name = "Stars")
+    public String getStarsActorsAndActresses() {
+        return starsActorsAndActresses;
+    }
+
+    public void setStarsActorsAndActresses(String starsActorsAndActresses) {
+        this.starsActorsAndActresses = starsActorsAndActresses;
+    }
+
+    @Column(name = "Reviews")
+    public String getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(String reviews) {
+        this.reviews = reviews;
+    }
+
+        @Override
     public String toString() {
         return "MovieEntity{" +
-                "Title='" + title + '\'' +
-                ", Director='" + director + '\'' +
-                ", ProductionCountry='" + productionCountry + '\'' +
-                ", ProductionYear=" + productionYear +
+                "Title='" + this.title + '\'' +
+                ", Director='" + this.director + '\'' +
+                ", FilmGenre='" + this.filmGenre + '\'' +
+                ", Stars=" + this.starsActorsAndActresses +
+                ", Reviews=" + this.reviews +
                 '}';
     }
+
+
 }

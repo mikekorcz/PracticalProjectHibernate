@@ -6,10 +6,12 @@ import javax.persistence.*;
 @Table(name = "movie")
 public class MovieEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+    @Column(insertable = false, updatable = false, columnDefinition = "serial", unique = true)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Id
     @Column(name = "Tytuł")
     private String title;
     @Column(name = "Reżyser")

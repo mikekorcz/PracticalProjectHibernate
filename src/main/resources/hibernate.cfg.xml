@@ -7,13 +7,13 @@
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/movies?allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=Europe/Warsaw</property>
         <property name="connection.username">root</property>
-        <property name="connection.password">sda123</property>
+        <property name="connection.password">sda</property>
         <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
         <!-- wyświetlamy na konsolę wszystkie zapytania SQL, które wywołuje dla nas Hibernate -->
         <property name="show_sql">true</property>
         <!-- http://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/Hibernate_User_Guide.html#configurations-hbmddl -->
         <!-- opcja 'create' = usuń i odwtórz strukturę bazy danych przy starcie aplikacji, inne opcje: 'create-only', 'create-drop', 'drop', 'none' -->
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">none</property>
         <mapping class="entity.MovieEntity" />
     </session-factory>
 </hibernate-configuration>

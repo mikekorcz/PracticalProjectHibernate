@@ -17,10 +17,12 @@ public class MovieRepository {
             Query<MovieEntity> entities1 = session.createQuery("FROM MovieEntity");
             entities = entities1.list();
             transaction.commit();
+            System.out.println(entities);
         } catch (HibernateException e) {
             e.printStackTrace();
         }
         return entities;
+
     }
 
 }

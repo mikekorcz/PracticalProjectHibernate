@@ -12,10 +12,7 @@ public class ReadAll {
         Session openSession = sessionFactory.openSession();
 
         try {
-//            List readAllData =
-//                    openSession
-//                            .createQuery("FROM MovieEntity")
-//                            .list();
+
             openSession.beginTransaction();
             List<MovieEntity> readAllData =
                     openSession
@@ -23,11 +20,6 @@ public class ReadAll {
                             .list();
 
 
-
-// openSession.save(readAllData);
-            for (MovieEntity movieEntity : readAllData) {
-                System.out.println(movieEntity);
-            }
 
             openSession.getTransaction().commit();
 

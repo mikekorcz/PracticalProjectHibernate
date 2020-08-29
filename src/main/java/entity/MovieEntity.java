@@ -1,16 +1,18 @@
 package entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "movie")
 public class MovieEntity {
 
 
-
-    @Column(insertable = false, updatable = false, columnDefinition="serial", unique = true)
+    @Column(insertable = false, updatable = false, columnDefinition = "serial", unique = true)
     private Integer id;
-@Id
+    @Id
     @Column(name = "Tytuł")
     private String title;
     @Column(name = "Reżyser")

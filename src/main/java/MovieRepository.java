@@ -1,5 +1,5 @@
-import entity.MovieEntity;
 import configuration.HibernateConfiguration;
+import entity.MovieEntity;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class MovieRepository {
     private static SessionFactory sessionFactory = HibernateConfiguration.getSessionFactory();
-  private static  Session openSession = sessionFactory.openSession();
+    private static Session openSession = sessionFactory.openSession();
 
     public static void saveTittle() {
 
@@ -49,10 +49,9 @@ public class MovieRepository {
     }
 
 
-
     public static List<MovieEntity> readAll() {
         List<MovieEntity> entities = new ArrayList<>();
-        try (Session session = HibernateConfiguration.getSessionFactory().openSession()){
+        try (Session session = HibernateConfiguration.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             Query<MovieEntity> entities1 = session.createQuery("FROM MovieEntity");
             entities = entities1.list();
@@ -60,8 +59,7 @@ public class MovieRepository {
 
         } catch (HibernateException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             openSession.close();
             HibernateConfiguration.closeSessionFactory();
         }

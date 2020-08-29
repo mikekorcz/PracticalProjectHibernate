@@ -6,8 +6,8 @@ import javax.persistence.*;
 @Table(name = "movie")
 public class MovieEntity {
 
-    @GeneratedValue
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "Tytuł")
@@ -38,6 +38,16 @@ public class MovieEntity {
         this.title = title;
         this.director = director;
         this.productionYear = productionYear;
+    }
+
+    public MovieEntity(Integer id, String title, String director, String filmGenre, Integer productionYear, String starsActorsAndActresses, String reviews) {
+        this.id = id;
+        this.title = title;
+        this.director = director;
+        this.filmGenre = filmGenre;
+        this.productionYear = productionYear;
+        this.starsActorsAndActresses = starsActorsAndActresses;
+        this.reviews = reviews;
     }
 
     public MovieEntity(String title, String director, String filmGenre, Integer productionYear, String starsActorsAndActresses, String reviews) {
@@ -98,16 +108,16 @@ public class MovieEntity {
         this.reviews = reviews;
     }
 
-//    @Override
-//    public String toString() {
-//        return "MovieEntity{" +
-//                "Title='" + this.title + '\'' +
-//                ", Director='" + this.director + '\'' +
-//                ", FilmGenre='" + this.filmGenre + '\'' +
-//                ", Stars=" + this.starsActorsAndActresses +
-//                ", Reviews=" + this.reviews +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "MovieEntity{" +
+                "Title='" + this.title + '\'' +
+                ", Director='" + this.director + '\'' +
+                ", FilmGenre='" + this.filmGenre + '\'' +
+                ", Stars=" + this.starsActorsAndActresses +
+                ", Reviews=" + this.reviews +
+                '}';
+    }
 
 
 }

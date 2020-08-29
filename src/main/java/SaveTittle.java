@@ -23,7 +23,9 @@ public class SaveTittle {
 
             openSession.beginTransaction();
 
+            System.out.println("Adding Top Gun Movie");
             openSession.save(topGun);
+            System.out.println("Koniec");
             openSession.save(goldenEye);
             openSession.save(mammaMia);
             openSession.save(paniDoubtfire);

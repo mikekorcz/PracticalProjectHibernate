@@ -1,10 +1,16 @@
+import entity.MovieEntity;
+import org.hibernate.HibernateException;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        // SaveTittle.saveTittle();
-        MovieRepository.readAll();
-        System.out.println();
+//        MovieRepository.saveTittle();
+//        MovieRepository.readAll();
+//        MovieRepository.delete("Forrest Gump");
+
+
+
 
     }
 }

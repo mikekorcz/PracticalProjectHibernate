@@ -110,13 +110,12 @@ public class MovieEntity {
 
     @Override
     public String toString() {
-        System.out.println("Movie Entity:");
         return
-                '\n'+"Tytuł='" + this.title + '\'' +
-                ", Director='" + this.director + '\'' +
-                ", FilmGenre='" + this.filmGenre + '\'' +
-                ", Stars=" + this.starsActorsAndActresses +
-                ", Reviews=" + this.reviews ;
+                '\n' + "Tytuł='" + this.title + '\'' +
+                        ", Director='" + this.director + '\'' +
+                        ", FilmGenre='" + this.filmGenre + '\'' +
+                        ", Stars=" + this.starsActorsAndActresses +
+                        ", Reviews=" + this.reviews;
 
     }
 

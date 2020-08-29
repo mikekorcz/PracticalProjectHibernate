@@ -10,9 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MovieRepository {
-    SessionFactory sessionFactory = HibernateConfiguration.getSessionFactory();
-    Session openSession = sessionFactory.openSession();
-
+    private static SessionFactory sessionFactory = HibernateConfiguration.getSessionFactory();
+  private static  Session openSession = sessionFactory.openSession();
     public static List<MovieEntity> readAll() {
         List<MovieEntity> entities = new ArrayList<>();
         try (Session session = HibernateConfiguration.getSessionFactory().openSession()){
@@ -20,7 +19,7 @@ public class MovieRepository {
             Query<MovieEntity> entities1 = session.createQuery("FROM MovieEntity");
             entities = entities1.list();
             transaction.commit();
-            System.out.println(entities);
+
         } catch (HibernateException e) {
             e.printStackTrace();
         }
@@ -28,6 +27,7 @@ public class MovieRepository {
             openSession.close();
             HibernateConfiguration.closeSessionFactory();
         }
+        System.out.println(entities);
         return entities;
 
     }

@@ -1,15 +1,10 @@
-import entity.MovieEntity;
-import configuration.HibernateConfiguration;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-
 public class Main {
 
     public static void main(String[] args) {
 
-       // SaveTittle.saveTittle();
-      MovieRepository.readAll();
-System.out.println();
+        // SaveTittle.saveTittle();
+        MovieRepository.readAll();
+        System.out.println();
 
     }
 }

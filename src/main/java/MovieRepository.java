@@ -11,9 +11,7 @@ import java.util.List;
 public class MovieRepository {
     private SessionFactory sessionFactory = HibernateConfiguration.getSessionFactory();
     private Session openSession = sessionFactory.openSession();
-public void saveRev(Review review){
 
-}
     public void save(Movie movie) {
         Session openSession = null;
         try {

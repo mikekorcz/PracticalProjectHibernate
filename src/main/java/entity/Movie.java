@@ -119,7 +119,6 @@ public class Movie {
                 '\n' + "Tytuł='" + this.title + '\'' +
                         ", Director='" + this.director + '\'' +
                         ", FilmGenre='" + this.filmGenre + '\'' +
-                        ", Stars=" + this.starsActorsAndActresses +
                         ", Reviews=" + this.reviews;
 
     }

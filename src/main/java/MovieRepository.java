@@ -14,7 +14,7 @@ public class MovieRepository {
     private static Session openSession = sessionFactory.openSession();
 
     public void save(Movie movie) {
-
+        Session openSession = sessionFactory.openSession();
         try {
             Session session = HibernateConfiguration.getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
@@ -34,7 +34,7 @@ public class MovieRepository {
         List<Movie> entities = new ArrayList<>();
         try (Session openSession = HibernateConfiguration.getSessionFactory().openSession()) {
             Transaction transaction = openSession.beginTransaction();
-            Query<Movie> entities1 = openSession.createQuery("FROM MovieEntity");
+            Query<Movie> entities1 = openSession.createQuery("FROM Movie");
             entities = entities1.list();
             transaction.commit();
 

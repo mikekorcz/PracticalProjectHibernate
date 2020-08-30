@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name = "movie")
 public class Movie {
 
-//    @Id
+    //    @Id
     @Column(insertable = false, updatable = false, columnDefinition = "serial", unique = true)
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

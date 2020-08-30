@@ -1,6 +1,4 @@
 *.iml
-hibernate.cfg.xml
-
 .idea
 out
 target

@@ -1,5 +1,5 @@
-import entity.MovieEntity;
 import configuration.HibernateConfiguration;
+import entity.Movie;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,23 +13,15 @@ public class MovieRepository {
     private static SessionFactory sessionFactory = HibernateConfiguration.getSessionFactory();
     private static Session openSession = sessionFactory.openSession();
 
-    public static void save(String title, String director, String filmGenre, Integer productionYear, String starsActorsAndActresses, String reviews) {
+    public void save(Movie movie) {
+
         try {
-            openSession = sessionFactory.openSession();
-
-            MovieEntity movieEntity = new MovieEntity();
-            movieEntity.setTitle(title);
-            movieEntity.setDirector(director);
-            movieEntity.setFilmGenre(filmGenre);
-            movieEntity.setProductionYear(productionYear);
-            movieEntity.setStarsActorsAndActresses(starsActorsAndActresses);
-            movieEntity.setReviews(reviews);
-
-            openSession.beginTransaction();
-            openSession.saveOrUpdate(movieEntity);
-            openSession.getTransaction().commit();
-
-        } catch (HibernateException e) {
+            Session session = HibernateConfiguration.getSessionFactory().openSession();
+            Transaction transaction = session.beginTransaction();
+            session.saveOrUpdate(movie);
+            transaction.commit();
+            session.close();
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             if (openSession != null) {
@@ -38,11 +30,11 @@ public class MovieRepository {
         }
     }
 
-    public static List<MovieEntity> readAll() {
-        List<MovieEntity> entities = new ArrayList<>();
+    public static List<Movie> readAll() {
+        List<Movie> entities = new ArrayList<>();
         try (Session openSession = HibernateConfiguration.getSessionFactory().openSession()) {
             Transaction transaction = openSession.beginTransaction();
-            Query<MovieEntity> entities1 = openSession.createQuery("FROM MovieEntity");
+            Query<Movie> entities1 = openSession.createQuery("FROM MovieEntity");
             entities = entities1.list();
             transaction.commit();
 
@@ -61,7 +53,7 @@ public class MovieRepository {
         try {
             openSession = sessionFactory.openSession();
             Transaction transaction = openSession.beginTransaction();
-            MovieEntity toRemove = openSession.get(MovieEntity.class, title);
+            Movie toRemove = openSession.get(Movie.class, title);
             openSession.delete(toRemove);
             transaction.commit();
         } catch (HibernateException e) {
@@ -73,39 +65,5 @@ public class MovieRepository {
         }
     }
 
-    public static void update(MovieEntity toUpdate) {
-        Session session = null;
-        try {
-            session = sessionFactory.openSession();
-            Transaction transaction = session.beginTransaction();
-            MovieEntity updated = session.get(MovieEntity.class, toUpdate.getId());
-            session.evict(updated);
-            session.saveOrUpdate(toUpdate);
-            transaction.commit();
-        } catch (HibernateException e) {
-            e.printStackTrace();
-        } finally {
-            if (openSession != null) {
-                openSession.close();
-            }
-        }
-    }
 
-    public static String save(MovieEntity toCreate) {
-        Session openSession = null;
-        String title = null;
-        try {
-            openSession = sessionFactory.openSession();
-            Transaction transaction = openSession.beginTransaction();
-            title = (String) openSession.save(toCreate);
-            transaction.commit();
-        } catch (HibernateException e) {
-            e.printStackTrace();
-        } finally {
-            if (openSession != null) {
-                openSession.close();
-            }
-        }
-        return title;
-    }
 }

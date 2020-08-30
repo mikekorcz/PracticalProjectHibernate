@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "movie")
-public class MovieEntity {
+public class Movie {
 
 //    @Id
     @Column(insertable = false, updatable = false, columnDefinition = "serial", unique = true)
@@ -19,13 +19,16 @@ public class MovieEntity {
     @Column(name = "Gatunek")
     private String filmGenre;
     @Column(name = "Rok")
+    @Transient
     private Integer productionYear;
     @Column(name = "Obsada")
+    @Transient
     private String starsActorsAndActresses;
     @Column(name = "Recenzje")
+    @Transient
     private String reviews;
 
-    public MovieEntity() {
+    public Movie() {
     }
 
     public Integer getId() {
@@ -36,13 +39,13 @@ public class MovieEntity {
         this.id = id;
     }
 
-    public MovieEntity(String title, String director, String productionCountry, Integer productionYear) {
+    public Movie(String title, String director, String filmGenre) {
         this.title = title;
         this.director = director;
-        this.productionYear = productionYear;
+        this.filmGenre = filmGenre;
     }
 
-    public MovieEntity(Integer id, String title, String director, String filmGenre, Integer productionYear, String starsActorsAndActresses, String reviews) {
+    public Movie(Integer id, String title, String director, String filmGenre, Integer productionYear, String starsActorsAndActresses, String reviews) {
         this.id = id;
         this.title = title;
         this.director = director;
@@ -52,7 +55,7 @@ public class MovieEntity {
         this.reviews = reviews;
     }
 
-    public MovieEntity(String title, String director, String filmGenre, Integer productionYear, String starsActorsAndActresses, String reviews) {
+    public Movie(String title, String director, String filmGenre, Integer productionYear, String starsActorsAndActresses, String reviews) {
         this.title = title;
         this.director = director;
         this.productionYear = productionYear;

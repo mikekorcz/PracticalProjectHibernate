@@ -1,11 +1,10 @@
 import entity.MovieEntity;
-import org.hibernate.HibernateException;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        MovieRepository.saveTittle("Top Gun", "Tony Ala", "Sensacyjny, Romans", 1986, "Tom Cruise, Kelly McGillis, Val Kilmer", "Rewelacyjny film!, Emocjonujące walki w powietrzu.");
+//        MovieRepository.save("Top Gun", "Tony Ala", "Sensacyjny, Romans", 1986, "Tom Cruise, Kelly McGillis, Val Kilmer", "Rewelacyjny film!, Emocjonujące walki w powietrzu.");
 //        MovieRepository.saveTittle("Golden Eye", "Martin Campbell", "Sensacyjny", 1995, "Pierce Brosnan, Sean Bean, Izabella Scorupco", "Najsłabszy z Bondów");
 //        MovieRepository.saveTittle("Mamma Mia!", "Phyllida Lloyd", "Musical, Komedia Romantyczna", 2008, "Meryl Streep, Pierce Brosnan, Colin Firth", "Aż chce się tańczyć!, Mamma Mia! Here I go again!");
 //        MovieRepository.saveTittle("Pani Doubtfire", "Chris Columbus", "Dramat, Komedia", 1993, "Robin Williams, Sally Field, Pierce Brosnan", "Hahahahha!");
@@ -15,7 +14,18 @@ public class Main {
 
 //        MovieRepository.readAll();
 
-//        MovieRepository.delete("Top Gun");
+//        MovieRepository.delete( "Top Gun");
 
+    }
+
+    public void movie(String title, String director, String filmGenre, Integer productionYear, String starsActorsAndActresses, String reviews) {
+
+        MovieEntity movieEntity = new MovieEntity();
+        movieEntity.setTitle(title);
+        movieEntity.setDirector(director);
+        movieEntity.setFilmGenre(filmGenre);
+        movieEntity.setProductionYear(productionYear);
+        movieEntity.setStarsActorsAndActresses(starsActorsAndActresses);
+        movieEntity.setReviews(reviews);
     }
 }

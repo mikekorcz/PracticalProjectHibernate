@@ -14,13 +14,20 @@ public class MovieRepository {
 
     public void save(Movie movie) {
         Session openSession = null;
+        Transaction transaction = null;
         try {
             openSession = sessionFactory.openSession();
-            Transaction transaction = openSession.beginTransaction();
+            transaction = openSession.beginTransaction();
             openSession.saveOrUpdate(movie);
             transaction.commit();
             openSession.close();
-        } finally {
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        }
+
+        finally {
             if (openSession != null) {
                 openSession.close();
             }

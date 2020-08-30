@@ -8,14 +8,14 @@ public class Main {
 
     public static void main(String[] args) {
         MovieRepository movieRepository = new MovieRepository();
-        //      Movie movie = new Movie("Golden Eye", "Martin Campbell", "Akcji");
+             Movie movie1 = new Movie("Golden Eye", "Martin Campbell", "Akcji");
+        movieRepository.save(movie1);
+     //   List<Movie> movie = movieRepository.readAll();
 
-        List<Movie> movie = movieRepository.readAll();
-
-        System.out.println(movie);
+      //  System.out.println(movie);
 
 //        MovieRepository.delete( "Golden Eye");
-//movieRepository.save(movie);
+
         HibernateConfiguration.closeSessionFactory();
     }
 }

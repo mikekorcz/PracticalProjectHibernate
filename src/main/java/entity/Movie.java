@@ -1,13 +1,15 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "movie")
 public class Movie {
 
+
     //    @Id
-    @Column(name = "Numer ID", insertable = false, updatable = false, columnDefinition = "serial", unique = true)
+    @Column(insertable = false, updatable = false, columnDefinition = "serial", unique = true)
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -18,8 +20,15 @@ public class Movie {
     private String director;
     @Column(name = "Gatunek")
     private String filmGenre;
-
-
+    @Column(name = "Rok")
+    @Transient
+    private Integer productionYear;
+    @Column(name = "Obsada")
+    @Transient
+    private String starsActorsAndActresses;
+    @Column(name = "Recenzje")
+    @OneToMany
+    private List<Review> reviews;
     public Movie() {
     }
 
@@ -42,13 +51,16 @@ public class Movie {
         this.title = title;
         this.director = director;
         this.filmGenre = filmGenre;
-
+        this.productionYear = productionYear;
+        this.starsActorsAndActresses = starsActorsAndActresses;
     }
 
     public Movie(String title, String director, String filmGenre, Integer productionYear, String starsActorsAndActresses, String reviews) {
         this.title = title;
         this.director = director;
+        this.productionYear = productionYear;
         this.filmGenre = filmGenre;
+        this.starsActorsAndActresses = starsActorsAndActresses;
 
     }
 
@@ -75,6 +87,23 @@ public class Movie {
     public void setFilmGenre(String filmGenre) {
         this.filmGenre = filmGenre;
     }
+
+    public Integer getProductionYear() {
+        return productionYear;
+    }
+
+    public void setProductionYear(Integer productionYear) {
+        this.productionYear = productionYear;
+    }
+
+    public String getStarsActorsAndActresses() {
+        return starsActorsAndActresses;
+    }
+
+    public void setStarsActorsAndActresses(String starsActorsAndActresses) {
+        this.starsActorsAndActresses = starsActorsAndActresses;
+    }
+
 
 
     @Override

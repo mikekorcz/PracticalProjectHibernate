@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Movie {
 
     //    @Id
-    @Column(insertable = false, updatable = false, columnDefinition = "serial", unique = true)
+    @Column(name = "Numer ID", insertable = false, updatable = false, columnDefinition = "serial", unique = true)
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -18,15 +18,7 @@ public class Movie {
     private String director;
     @Column(name = "Gatunek")
     private String filmGenre;
-    @Column(name = "Rok")
-    @Transient
-    private Integer productionYear;
-    @Column(name = "Obsada")
-    @Transient
-    private String starsActorsAndActresses;
-    @Column(name = "Recenzje")
-    @Transient
-    private String reviews;
+
 
     public Movie() {
     }
@@ -50,18 +42,13 @@ public class Movie {
         this.title = title;
         this.director = director;
         this.filmGenre = filmGenre;
-        this.productionYear = productionYear;
-        this.starsActorsAndActresses = starsActorsAndActresses;
-        this.reviews = reviews;
+
     }
 
     public Movie(String title, String director, String filmGenre, Integer productionYear, String starsActorsAndActresses, String reviews) {
         this.title = title;
         this.director = director;
-        this.productionYear = productionYear;
         this.filmGenre = filmGenre;
-        this.starsActorsAndActresses = starsActorsAndActresses;
-        this.reviews = reviews;
 
     }
 
@@ -89,37 +76,13 @@ public class Movie {
         this.filmGenre = filmGenre;
     }
 
-    public Integer getProductionYear() {
-        return productionYear;
-    }
-
-    public void setProductionYear(Integer productionYear) {
-        this.productionYear = productionYear;
-    }
-
-    public String getStarsActorsAndActresses() {
-        return starsActorsAndActresses;
-    }
-
-    public void setStarsActorsAndActresses(String starsActorsAndActresses) {
-        this.starsActorsAndActresses = starsActorsAndActresses;
-    }
-
-    public String getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(String reviews) {
-        this.reviews = reviews;
-    }
 
     @Override
     public String toString() {
         return
                 '\n' + "Tytuł='" + this.title + '\'' +
                         ", Director='" + this.director + '\'' +
-                        ", FilmGenre='" + this.filmGenre + '\'' +
-                        ", Reviews=" + this.reviews;
+                        ", FilmGenre='" + this.filmGenre + '\'';
 
     }
 

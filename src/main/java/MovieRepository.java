@@ -26,7 +26,7 @@ public class MovieRepository {
             movieEntity.setReviews(reviews);
 
             openSession.beginTransaction();
-            openSession.save(movieEntity);
+            openSession.saveOrUpdate(movieEntity);
             openSession.getTransaction().commit();
 
         } catch (HibernateException e) {
@@ -85,8 +85,8 @@ public class MovieRepository {
         } catch (HibernateException e) {
             e.printStackTrace();
         } finally {
-            if (session != null) {
-                session.close();
+            if (openSession != null) {
+                openSession.close();
             }
         }
     }

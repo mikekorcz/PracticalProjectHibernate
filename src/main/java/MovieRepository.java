@@ -13,17 +13,11 @@ public class MovieRepository {
     private static SessionFactory sessionFactory = HibernateConfiguration.getSessionFactory();
     private static Session openSession = sessionFactory.openSession();
 
-    public static void saveTittle(String title, String director, String filmGenre, Integer productionYear, String starsActorsAndActresses, String reviews) {
+    public void save() {
         try {
             openSession = sessionFactory.openSession();
 
-            MovieEntity movieEntity = new MovieEntity();
-            movieEntity.setTitle(title);
-            movieEntity.setDirector(director);
-            movieEntity.setFilmGenre(filmGenre);
-            movieEntity.setProductionYear(productionYear);
-            movieEntity.setStarsActorsAndActresses(starsActorsAndActresses);
-            movieEntity.setReviews(reviews);
+
 
             openSession.beginTransaction();
             openSession.saveOrUpdate(movieEntity);
